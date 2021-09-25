@@ -1,13 +1,94 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(14, 77, 102);
+   font-family: 'Gemunu Libre', sans-serif; 
+}
+button:hover{
+  cursor: pointer;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header {
+  font-size: 7vw;
+}
+#main-container {
+  display: flex;
+  flex-direction: row;
+  width: 75vw;
+  height: 30vw;
+  border: .5vw solid black;
+  justify-content: space-around;
+  margin: 30px;
+  align-items: center;
+  border-radius: 1vw;
+}
+.session-break {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+  height: 8.5vw;
+  border: .25vw solid black;
+  border-radius: 1vw;
+}
+ .inc-dec-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+   /* border: 2px solid white; */
+   width: 100%;
+   height: 6vw;
+   align-items: center;
+   margin-top: 1vw;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.inc-dec-button, .timer-btn {
+  width: 3.5vw;
+  height: 3.5vw;
+  border: none;
+  /* border: 2px solid black; */
+  font-size: 2vw;
+  background-color: rgb(14, 77, 102);
+}
+.length {
+  font-size: 3.5vw;
+}
+.label {
+  /* font-family: 'Gemunu Libre', sans-serif; */
+  font-size: 2.7vw;
+  /* border: 2px solid black; */
+}
+#timer-container {
+  width: 40vw;
+  height: 30vw;
+  /* border: 5px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+#timer-label {
+  font-size: 4.5vw;
+}
+#time-left {
+  font-size: 18vw;
+}
+
+
+
+.timer-btn {
+  width: 4.5vw;
+  height: 4.5vw;
+  font-size: 4vw;
+}
+
+#timer-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 25vw;
+  height: 7vw;
+  /* border: 5px solid black; */
 }
