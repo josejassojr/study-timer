@@ -1,4 +1,5 @@
 import React from 'react';
+import timerFuncs from './timer'
 
 class App extends React.Component {
   constructor() {
@@ -53,6 +54,8 @@ class App extends React.Component {
           breakLength: 5,
           currently: "Session"
         })
+      case "test":
+        timerFuncs(currSession, currBreak);
       default: return;
     }
   }
@@ -116,7 +119,7 @@ class App extends React.Component {
           </div>
         </div>
         <div id="timer-controls">
-          <button id="start_stop" className="timer-btn">
+          <button id="start_stop" className="timer-btn" onClick={() => this.handleClick("test")}>
             <i class="fas fa-play"></i>
           </button>
           <button id="pause" className="timer-btn">
