@@ -48,6 +48,8 @@ class App extends React.Component {
     if (this.minSession === 0 && this.sec === 0) {
       clearInterval(sessionTimer);
       // would sound the alarm right here and maybe call breakTimer?
+      var audio = document.getElementById("beep");
+      audio.play();
       this.minBreak = breakLength;
       this.setState({
         currently: "Break"
@@ -72,6 +74,8 @@ class App extends React.Component {
     if (this.minBreak === 0 && this.sec === 0) {
       clearInterval(breakTimer);
       // would sound the alarm right here and maybe call breakTimer?
+      var audio = document.getElementById("beep");
+      audio.play();
       this.minSession = sessionLength;
       this.setState({
         currently: "Session"
@@ -114,14 +118,16 @@ class App extends React.Component {
         this.setState({
           timerOn: true
         });
-        this.minBreak = currBreak;
-        this.minSession = currSession;
         if (currently === "Session") {
+          this.minBreak = currBreak;
+          this.minSession =Number(this.state.timeLeft.substring(0, 2));
           sessionTimer = setInterval(
           () => this.sessionFunc(currSession, currBreak),
           1000
         );
         } else {
+          this.minBreak = Number(this.state.timeLeft.substring(0, 2));
+          this.minSession = currSession;
           breakTimer = setInterval(
             () => this.breakFunc(currSession, currBreak),
             1000
@@ -142,6 +148,9 @@ class App extends React.Component {
           timeLeft: "25:00"
         });
         this.sec = 0;
+        var audio = document.getElementById("beep");
+        audio.pause();
+        audio.currentTime = 0;
         break;
       case "session-decrement":
         if (currSession > 1 && !timerOn) {
@@ -278,6 +287,7 @@ class App extends React.Component {
             <i class="fas fa-redo"></i>
           </button>
         </div>
+        <audio id="beep" hidden="true" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" />
       </div>
     );
   }
