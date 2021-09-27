@@ -18,7 +18,7 @@ header {
   flex-direction: row;
   width: 75vw;
   height: 30vw;
-  border: .5vw solid black;
+  border: 1vw solid white;
   justify-content: space-around;
   margin: 30px;
   align-items: center;
@@ -30,7 +30,7 @@ header {
   align-items: center;
   width: 15vw;
   height: 8.5vw;
-  border: .25vw solid black;
+  border: .25vw solid rgb(245, 229, 7);
   border-radius: 1vw;
 }
  .inc-dec-container {
