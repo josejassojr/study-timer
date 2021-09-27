@@ -51,6 +51,7 @@ header {
   /* border: 2px solid black; */
   font-size: 2vw;
   background-color: rgb(14, 77, 102);
+  color: black;
 }
 .length {
   font-size: 3.5vw;
@@ -81,6 +82,7 @@ header {
   width: 4.5vw;
   height: 4.5vw;
   font-size: 4vw;
+  color: black;
 }
 
 #timer-controls {
