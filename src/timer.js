@@ -22,7 +22,7 @@ const timerFuncs = (sessionLength, breakLength) => {
       sec -= 1;
     }
     if (sec < 10) {
-      console.log("sesion time left is " + String(minSession) + ":0" + String(sec));
+      console.log("session time left is " + String(minSession) + ":0" + String(sec));
     } else {
       console.log("session time left is " + String(minSession) + ":" + String(sec));
     }
@@ -31,7 +31,7 @@ const timerFuncs = (sessionLength, breakLength) => {
   breakFunc = () => {
     if (minBreak === 0 && sec === 0) {
       clearInterval(breakTimer);
-      // would sond the alarm right here and maybe call breakTimer?
+      // would sound the alarm right here and maybe call breakTimer?
       minSession = sessionLength;
       sessionTimer = setInterval(sessionFunc, 200);
       return;
