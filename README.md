@@ -1,4 +1,4 @@
-# Jose Jasso Jr. | Study Timer
+# Jose Jasso Jr. | Focus Timer
 
 An application used while studying or other tasks to time your tasks and breaks in between.
 
