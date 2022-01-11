@@ -1,0 +1,45 @@
+.Footer {
+  display: flex;
+  flex-direction: row;
+  font-style: italic;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 11px;
+  width: 300px;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+#footer-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+}
+.footer-button,
+.Footer {
+  color: rgba(194, 194, 194, 0.24);
+}
+
+/* Larger Views (Like Monitors and such) */
+@media (min-width: 1600px) {
+  .Footer {
+    font-size: 13px;
+    width: 500px;
+  }
+}
+@media (min-width: 2560px) {
+  .Footer {
+    font-size: 24px;
+    width: 600px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .Footer {
+    margin-top: 50px;
+  }
+}

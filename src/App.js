@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer/Footer";
 import timerFuncs from "./timer";
 
 var sessionTimer;
@@ -15,7 +16,7 @@ class App extends React.Component {
       sessionLength: 25,
       timeLeft: "25:00",
       currently: "Session",
-      timerOn: false
+      timerOn: false,
     };
 
     this.minSession = this.state.sessionLength;
@@ -27,20 +28,20 @@ class App extends React.Component {
     if (sec < 10) {
       if (min < 10) {
         this.setState({
-          timeLeft: "0" + String(min) + ":0" + String(sec)
+          timeLeft: "0" + String(min) + ":0" + String(sec),
         });
       } else {
         this.setState({
-          timeLeft: String(min) + ":0" + String(sec)
+          timeLeft: String(min) + ":0" + String(sec),
         });
       }
     } else if (min < 10) {
       this.setState({
-        timeLeft: "0" + String(min) + ":" + String(sec)
+        timeLeft: "0" + String(min) + ":" + String(sec),
       });
     } else {
       this.setState({
-        timeLeft: String(min) + ":" + String(sec)
+        timeLeft: String(min) + ":" + String(sec),
       });
     }
   }
@@ -52,7 +53,7 @@ class App extends React.Component {
       audio.play();
       this.minBreak = breakLength;
       this.setState({
-        currently: "Break"
+        currently: "Break",
       });
       this.setTimeLeft(this.minBreak, 0);
       breakTimer = setInterval(
@@ -78,7 +79,7 @@ class App extends React.Component {
       audio.play();
       this.minSession = sessionLength;
       this.setState({
-        currently: "Session"
+        currently: "Session",
       });
       this.setTimeLeft(this.minSession, 0);
       sessionTimer = setInterval(
@@ -98,8 +99,8 @@ class App extends React.Component {
 
   pauseTimer() {
     this.setState({
-      timerOn: false
-    })
+      timerOn: false,
+    });
     clearInterval(sessionTimer);
     clearInterval(breakTimer);
   }
@@ -116,15 +117,15 @@ class App extends React.Component {
           return;
         }
         this.setState({
-          timerOn: true
+          timerOn: true,
         });
         if (currently === "Session") {
           this.minBreak = currBreak;
-          this.minSession =Number(this.state.timeLeft.substring(0, 2));
+          this.minSession = Number(this.state.timeLeft.substring(0, 2));
           sessionTimer = setInterval(
-          () => this.sessionFunc(currSession, currBreak),
-          1000
-        );
+            () => this.sessionFunc(currSession, currBreak),
+            1000
+          );
         } else {
           this.minBreak = Number(this.state.timeLeft.substring(0, 2));
           this.minSession = currSession;
@@ -133,7 +134,7 @@ class App extends React.Component {
             1000
           );
         }
-        
+
         break;
       case "pause":
         this.pauseTimer();
@@ -145,7 +146,7 @@ class App extends React.Component {
           breakLength: 5,
           currently: "Session",
           timerOn: false,
-          timeLeft: "25:00"
+          timeLeft: "25:00",
         });
         this.sec = 0;
         var audio = document.getElementById("beep");
@@ -155,7 +156,7 @@ class App extends React.Component {
       case "session-decrement":
         if (currSession > 1 && !timerOn) {
           this.setState({
-            sessionLength: currSession - 1
+            sessionLength: currSession - 1,
           });
           if (currently === "Session") {
             this.sec = 0;
@@ -167,19 +168,19 @@ class App extends React.Component {
       case "session-increment":
         if (currSession < 60 && !timerOn) {
           this.setState({
-            sessionLength: currSession + 1
+            sessionLength: currSession + 1,
           });
           if (currently === "Session") {
             this.sec = 0;
             this.setTimeLeft(currSession + 1, 0);
-          }        
+          }
           return;
         }
         break;
       case "break-decrement":
         if (currBreak > 1 && !timerOn) {
           this.setState({
-            breakLength: currBreak - 1
+            breakLength: currBreak - 1,
           });
           if (currently === "Break") {
             this.sec = 0;
@@ -191,7 +192,7 @@ class App extends React.Component {
       case "break-increment":
         if (currBreak < 60 && !timerOn) {
           this.setState({
-            breakLength: currBreak + 1
+            breakLength: currBreak + 1,
           });
           if (currently === "Break") {
             this.sec = 0;
@@ -287,7 +288,12 @@ class App extends React.Component {
             <i class="fas fa-redo"></i>
           </button>
         </div>
-        <audio id="beep" hidden="true" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" />
+        <audio
+          id="beep"
+          hidden="true"
+          src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+        />
+        <Footer />
       </div>
     );
   }
