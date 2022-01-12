@@ -9,6 +9,14 @@ function Footer() {
       Created by Jose Jasso Jr.{" "}
       <div id="footer-buttons">
         <a
+          href="https://www.josejassojr.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="footer-button"
+        >
+          <i class="fas fa-laptop-code"></i>
+        </a>
+        <a
           href="https://www.linkedin.com/in/josejassojr/"
           target="_blank"
           rel="noreferrer"
